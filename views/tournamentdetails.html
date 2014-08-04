@@ -1,1 +1,25 @@
-﻿<p ng-model="tournament">{{tournament.name}}</p>
+<div ﻿ng-model="tournament">
+<h2>{{tournament.name}}</h2>
+<p>{{tournament.description}}</p>
+<p>Rules<p/>
+<dl>
+  <div ng-repeat="rule in tournament.rules">
+  <dt>{{rule.Key}}</dt>
+    <dd ng-repeat="ruleValue in rule.value">{{ruleValue}}</dd>
+  </div>
+</dl>
+<p>Teams</p>
+<ul>
+  <li ng-repeat="team in tournament.teams">
+    <img ng-src="{{team.teamLogoUrl}}" height="80px" width="400px"><img>
+    <h3>{{team.name}}</h3>
+    <p>Members:</p>
+    <ul>
+      <li ng-repeat="member in team.members">
+
+        <img ng-src="{{member.avatarurl}}" height="40px" width="40px"><h4>{{member.inGameName}}</h4></img>
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
