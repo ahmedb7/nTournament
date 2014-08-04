@@ -16,6 +16,4 @@ this.addTournament = function (tournament) {
     tournaments.push(tournament);
 }
 }
-
-
 ]);

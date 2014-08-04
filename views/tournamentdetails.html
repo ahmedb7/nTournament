@@ -1,6 +1,11 @@
 <div ﻿ng-model="tournament">
+<img ng-src="{{tournament.tournamentHeaderImage}}">
 <h2>{{tournament.name}}</h2>
 <p>{{tournament.description}}</p>
+<p>{{tournament.name}}</p>
+<p>{{tournament.tournamentStartTime}}</p>
+<p>{{tournament.registrationStartTime}}</p>
+<p>{{tournament.registrationEndTime}}</p>
 <p>Rules<p/>
 <dl>
   <div ng-repeat="rule in tournament.rules">
@@ -22,4 +27,10 @@
     </ul>
   </li>
 </ul>
+
+
+
+<a href="{{tournament.streamLink}}">{{tournament.streamLink}}</p>
+<a href="#/tournaments/#}">back</a>
 </div>
+﻿
