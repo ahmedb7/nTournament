@@ -1,0 +1,17 @@
+{
+  "name": "nTournament",
+  "version": "0.0.0",
+  "description": "nTournament",
+  "main": "app.js",
+  "author": {
+    "name": "oremse",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "~3.4.4",
+    "jade": "*",
+    "stylus": "*",
+    "angular": "1.2.19",
+    "ejs": "~1.0.0"
+  }
+}

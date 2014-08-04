@@ -1,0 +1,10 @@
+﻿<div class="container">
+    <div class="col-md-10">
+        <ul class="tournaments">
+            <li ng-repeat="tour in tournaments" class="thumbnail tournament-listing">
+                <a href="#/tournaments/{{tour.tournamentId}}" class="thumb"><img ng-src="{{tour.tournamentthumb}}"></a>
+                <a href="#/tournaments/{{tour.tournamentId}}">{{tour.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
