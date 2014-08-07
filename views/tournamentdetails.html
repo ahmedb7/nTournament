@@ -1,5 +1,12 @@
-<div ﻿ng-model="tournament">
-<img ng-src="{{tournament.tournamentHeaderImage}}">
+<div ﻿ng-model="tournament" class="page">
+
+<div class="row">
+  <div class="pageHeader col-md-12">
+    <div class="HeaderImage">
+      <img ng-src="{{tournament.tournamentHeaderImage}}">
+    </div>
+  </div>
+</div>
 <h2>{{tournament.name}}</h2>
 <p>{{tournament.description}}</p>
 <p>{{tournament.name}}</p>
@@ -30,7 +37,7 @@
 
 
 
-<a href="{{tournament.streamLink}}">{{tournament.streamLink}}</p>
-<a href="#/tournaments/#}">back</a>
+<a href="{{tournament.streamLink}}"><button type="button" class="btn btn-info">{{tournament.streamLink}}</button></p>
+<a href="#/tournaments/#}"><button type="button" class="btn btn-warning">back</button></a>
 </div>
 ﻿
