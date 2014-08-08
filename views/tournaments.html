@@ -1,11 +1,40 @@
-﻿<div class="container">
-    <div class="col-md-10">
-        <ul class="tournaments">
-            <li ng-repeat="tour in tournaments" class="thumbnail tournament-listing">
-                <a href="#/tournaments/{{tour.tournamentId}}" class="thumb"><img ng-src="{{tour.tournamentthumb}}"></a>
-                <a href="#/tournaments/{{tour.tournamentId}}">{{tour.name}}</a>
-            </li>
-        </ul>
-        <button onclick="parent.location='#/createnewtournament'">Create new!</button>
+﻿<div class="pWrapper container-fluid">
+  <div class="mainContent container-fluid">
+    <div class="contestLarge row">
+      <div ng-model="tournament" class="tournament-listing panel-body thumbWrap col-md-12">
+        <div class="thumbRight col-md-6">
+          <img class="placeholder tournament" src="http://strategy-game-guides.com/wp-content/uploads/2013/03/HotS-Banner-Game-Banner.jpg" alt="" />
+        </div>
+        <div class="thumbLeft col-md-6">
+          <img class="placeholder tournament" src="http://strategy-game-guides.com/wp-content/uploads/2013/03/HotS-Banner-Game-Banner.jpg" alt="" />
+        </div>
+
+      </div>
     </div>
-</div>
+    <div class="contestSmall row">
+      <table class="table thumbnail tournament-listing">
+        <tbody>
+         <tr class="col-md-4" ng-repeat="tour in tournaments | orderBy:tournamentCreated">
+           <td>
+            <a href="#/tournaments/{{tour.tournamentId}}" class="thumb"><img class="tournament" ng-src="{{tour.tournamentthumb}}"></a>
+            <a href="#/tournaments/{{tour.tournamentId}}"><p class="thumbText">
+            {{tour.name}}
+              </p>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="news">
+    <div class="newsHeader">
+
+    </div>
+    <div class="newsContent">
+
+    </div>
+
+  </div>
+﻿</div>
