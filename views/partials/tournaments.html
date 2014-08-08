@@ -1,12 +1,9 @@
 ﻿<div class="pWrapper container-fluid">
   <div class="mainContent container-fluid">
     <div class="contestLarge row">
-      <div ng-model="tournament" class="tournament-listing panel-body thumbWrap col-md-12">
-        <div class="thumbRight col-md-6">
-          <img class="placeholder tournament" src="http://strategy-game-guides.com/wp-content/uploads/2013/03/HotS-Banner-Game-Banner.jpg" alt="" />
-        </div>
-        <div class="thumbLeft col-md-6">
-          <img class="placeholder tournament" src="http://strategy-game-guides.com/wp-content/uploads/2013/03/HotS-Banner-Game-Banner.jpg" alt="" />
+      <div class="tournament-listing panel-body thumbWrap col-md-12">
+        <div ng-repeat="tourL in tournaments | orderBy:important | limitTo:2" class="thumb col-md-6">
+          <a href="#/tournaments/{{tourL.tournamentId}}" class="thumb"><img class="tournament" ng-src="{{tourL.tournamentthumb}}"></a>
         </div>
 
       </div>
