@@ -100,6 +100,16 @@ h1 {
   border-bottom: 1px solid gray;
 }
 .pWrapper{
+
+position: absolute;
+width: 80%;
+height: 90%;
+display: inline-block;
+left: 10%;
+top: 0;
+
+}
+.mainContent{
   background-color: steelblue;
 }
 
@@ -113,4 +123,10 @@ p.thumbText{
 
 }
 .thumbWrap{
+}
+.panel-title > p{
+  font-size: 1.5em;
+}
+.news{
+
 }
