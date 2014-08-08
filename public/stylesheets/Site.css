@@ -1,6 +1,5 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+padding-top: 40px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,11 +15,6 @@ textarea {
     max-width: 280px;
 }
 /* app css stylesheet */
-
-body {
-  padding-top: 20px;
-}
-
 
 .tournament-images {
   background-color: white;
@@ -40,7 +34,6 @@ body {
 .tournaments li {
   clear: both;
 
-  padding-top: 15px;
 }
 
 /** Detail View **/
@@ -49,7 +42,7 @@ img.tournament {
   margin-right: 3em;
   margin-bottom: 2em;
   background-color: white;
-  padding: 2em;
+  padding: 1em;
   height: 100%;
   width: 100%;
   display: none;
@@ -107,12 +100,11 @@ h1 {
   border-bottom: 1px solid gray;
 }
 .pWrapper{
-  background-color: tomato;
+  background-color: steelblue;
 }
 
 p.thumbText{
   text-align: center;
-  font-size:15px;
   z-index:+1;
 
 }
