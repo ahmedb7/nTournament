@@ -17,3 +17,17 @@ this.addTournament = function (tournament) {
 }
 }
 ]);
+nTournamentServices.service('News',['$resource',
+function ($resource){
+  var newslist = [];
+  var newsData = $resource('/data/news.json');
+  newslist = newsData.query();
+
+  this.news = function () {
+    return newslist;
+  }
+  this.addnewsdata = function (news) {
+      newslist.push(news);
+  }
+}
+]);

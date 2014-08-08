@@ -29,17 +29,17 @@
   !-->
   <div class="news row-fluid">
     <div class="newsWrapper panel panel-default">
-      <table class="newsLoop table">
+      <table ng-repeat="news in newslist" class="newsLoop table">
         <thead>
           <div class="newsHeader panel-heading row">
             <div class="panel-title col-md-10">
               <p>
-              David headings
+              {{news.title}}
               </p>
             </div>
             <div class="hashtags panel-title col-md-2">
               <p >
-                #test #woop
+                {{news.hashtags}}
               </p>
             </div>
           </div>
@@ -49,12 +49,9 @@
           <tr>
             <div class="newsContent">
               <p>
-                Tempor do eu fugiat duis in velit. Aute consectetur sint adipisicing pariatur velit aliqua velit esse fugiat. Aliqua adipisicing nulla id proident mollit adipisicing eu fugiat enim laborum minim veniam officia. Officia laborum mollit mollit ex duis id. Sit id in aliquip laboris non exercitation deserunt consectetur occaecat. Consequat mollit aliquip nulla commodo ea culpa voluptate incididunt do commodo laboris exercitation veniam. Ea ex adipisicing eiusmod veniam ut sint nulla officia sint tempor ea. In ullamco irure culpa Lorem duis. Dolor quis tempor duis pariatur minim mollit consequat non do incididunt minim magna irure.
+                {{news.mainContent}}
               </p>
-              <p>
-                Eiusmod occaecat consequat ullamco cillum duis sint. Nostrud id reprehenderit id elit veniam ipsum incididunt dolor sint aliquip. Aliquip amet enim veniam et quis exercitation proident nisi. Sit sunt ullamco nisi magna culpa nisi voluptate labore duis consequat cupidatat cupidatat laboris excepteur. Do fugiat in sunt duis cillum commodo Lorem id excepteur. Veniam reprehenderit aliquip eiusmod ut amet non ipsum est qui voluptate quis velit. Quis officia id occaecat labore culpa ea anim eu. Aliquip esse in fugiat do velit sit fugiat ullamco magna.
 
-              </p>
             </div>
 
           </tr>
