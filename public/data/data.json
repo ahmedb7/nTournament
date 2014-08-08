@@ -10,6 +10,7 @@
     "priority": 1,
     "tournamentthumb": "http://strategy-game-guides.com/wp-content/uploads/2013/03/HotS-Banner-Game-Banner.jpg",
     "tournamentHeaderImage": "http://strategy-game-guides.com/wp-content/uploads/2013/03/HotS-Banner-Game-Banner.jpg",
+    "teamsize": 1,
     "rules": [
                 {
         "key": "format",

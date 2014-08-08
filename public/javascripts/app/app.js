@@ -15,6 +15,11 @@ nTournamentApp.config([
         templateUrl: 'tournamentdetails',
         controller: 'TournamentDetailsCtrl'
     }).
+            when('/createnewtournament',
+            {
+              templateUrl: 'createnewtournament',
+              controller: 'TournamentMainCtrl'
+            }).
             otherwise({
         redirectTo: '/tournaments'
     })
