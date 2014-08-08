@@ -7,11 +7,11 @@ exports.index = function(req, res){
   res.render('index.html');
 };
 exports.tournaments = function (req, res) {
-    res.render('tournaments.html');
+    res.render('partials/tournaments.html');
 };
 exports.tournamentsdetails = function (req, res) {
-    res.render('tournamentdetails.html');
+    res.render('partials/tournamentdetails.html');
 };
 exports.createnewtournament = function(req,res){
-  res.render('createnewtournament.html');
+  res.render('partials/createnewtournament.html');
 };

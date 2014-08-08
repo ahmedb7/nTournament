@@ -5,14 +5,18 @@
     'nTournamentServices'
 ]);
 nTournamentApp.config([
-    '$routeProvider', function ($routeProdiver) {
-    $routeProdiver.
-            when('/tournaments', {
-        templateUrl: 'tournaments',
+    '$routeProvider', function ($routeProvider) {
+    $routeProvider.
+            when('/', {
+        templateUrl: 'partials/tournaments',
+        controller: 'TournamentMainCtrl'
+        }).
+            when('/partials/tournaments', {
+        templateUrl: 'partials/tournaments',
         controller: 'TournamentMainCtrl'
     }).
             when('/tournaments/:tournamentId', {
-        templateUrl: 'tournamentdetails',
+        templateUrl: 'partials/tournamentdetails',
         controller: 'TournamentDetailsCtrl'
     }).
             when('/createnewtournament',
@@ -21,7 +25,7 @@ nTournamentApp.config([
               controller: 'TournamentMainCtrl'
             }).
             otherwise({
-        redirectTo: '/tournaments'
+        redirectTo: '/'
     })
 ;
 }
