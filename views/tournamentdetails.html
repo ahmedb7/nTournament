@@ -18,19 +18,15 @@
   <li ng-repeat="team in tournament.teams">
     <img ng-src="{{team.teamLogoUrl}}" height="80px" width="400px"><img>
     <h3>{{team.name}}</h3>
-    <p>Members:</p>
-    <ul>
-      <li ng-repeat="member in team.members">
-
-        <img ng-src="{{member.avatarurl}}" height="40px" width="40px"><h4>{{member.inGameName}}</h4></img>
-      </li>
-    </ul>
+    <a href="#/teams/{{team.id}}" class="thumb"><img ng-src="{{team.teamLogoUrl}" height="80px" width="400px"></a>
+    <a href="#/teams/{{team.id}}">{{team.name}}</a>
+</li>
   </li>
 </ul>
 
 
-
-<a href="{{tournament.streamLink}}">{{tournament.streamLink}}</p>
+<a href="#/tournaments/{{tournament.tournamentId}}/createteam">Create new team!</a>
+<a href="{{tournament.streamLink}}">{{tournament.streamLink}}</a>
 <a href="#/tournaments/#}">back</a>
 </div>
 ﻿
