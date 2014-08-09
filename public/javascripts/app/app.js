@@ -9,11 +9,11 @@ nTournamentApp.config([
     $routeProvider.
             when('/', {
         templateUrl: 'partials/tournaments',
-        controller: 'TournamentNewsCtrl'
+        controller: 'TournamentMainCtrl'
         }).
             when('/partials/tournaments', {
         templateUrl: 'partials/tournaments',
-        controller: 'TournamentNewsCtrl'
+        controller: 'TournamentMainCtrl'
     }).
             when('/tournaments/:tournamentId', {
         templateUrl: 'partials/tournamentdetails',

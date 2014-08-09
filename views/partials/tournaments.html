@@ -1,10 +1,11 @@
-﻿<div class="pWrapper container-fluid">
+<div class="pWrapper container-fluid">
   <div class="mainContent container-fluid" ng-model="tournaments">
     <div class="contestLarge row">
       <div class="tournament-listing panel-body thumbWrap col-md-12">
         <div ng-repeat="tourL in tournaments | orderBy:tourL.important | limitTo:2" class="thumb col-md-6">
-          <p>{{tourL.name}}</p>
+
           <a href="#/tournaments/{{tourL.tournamentId}}" class="thumb"><img class="tournament" ng-src="{{tourL.tournamentthumb}}"></a>
+          <h3 class="well well-sm">{{tourL.name}}</h3>
         </div>
 
       </div>
@@ -12,47 +13,48 @@
     <div class="contestSmall row-fluid">
       <table class="table thumbnail tournament-listing">
         <tbody>
-         <tr class="col-md-4" ng-repeat="tour in tournaments | orderBy:tournamentCreated">
-           <td>
-            <a href="#/tournaments/{{tour.tournamentId}}" class="thumb"><img class="tournament" ng-src="{{tour.tournamentthumb}}"></a>
-            <a href="#/tournaments/{{tour.tournamentId}}"><p class="thumbText">
-            {{tour.name}}
+          <tr class="col-md-4" ng-repeat="tour in tournaments | orderBy:tournamentCreated">
+            <td>
+              <a href="#/tournaments/{{tour.tournamentId}}" class="thumb"><img class="tournament" ng-src="{{tour.tournamentthumb}}"></a>
+              <a href="#/tournaments/{{tour.tournamentId}}"><p class="thumbText">
+                {{tour.name}}
               </p>
             </a>
           </td>
         </tr>
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+    </table>
   </div>
-  <!--
-  har försökt designa nyhetsflödet för att se bra ut när man loopar igenom flera nyheter
-  !-->
-  <div class="news row-fluid" ng-model="newslist">
-    <div class="newsWrapper panel panel-default">
-      <table ng-repeat="newsitem in newslist" class="newsLoop table">
-        <thead>
-          <tr>
-            <th>
-          <div class="newsHeader panel-heading row">
-            <div class="panel-title col-md-10">
-              <p>
-                {{newsitem.title}}
-              </p>
+</div>
+<!--
+har försökt designa nyhetsflödet för att se bra ut när man loopar igenom flera nyheter
+!-->
+<div class="news row-fluid" ng-model="newslist">
+  <div ng-controller="TournamentNewsCtrl" class="newsWrapper">
+    <div ng-repeat="newsitem in newslist" class="newsLoop well">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            <div class="newsHeader row">
+              <div class="panel-title col-md-10">
+                <p>
+                  {{newsitem.title}}
+                </p>
+              </div>
+              <div class="hashtags panel-title col-md-2">
+                <p >
+                  {{newsitem.hashtags}}
+                </p>
+              </div>
             </div>
-            <div class="hashtags panel-title col-md-2">
-              <p >
-                {{newsitem.hashtags}}
-              </p>
-            </div>
-          </div>
-        </th>
+          </th>
         </tr>
 
-        </thead>
-        <tbody class="newsBody panel-body">
-          <tr>
-            <td>
+      </thead>
+      <tbody class="newsBody">
+        <tr>
+          <td>
             <div class="newsContent">
               <p>
                 {{newsitem.mainContent}}
@@ -60,12 +62,12 @@
 
             </div>
           </td>
-          </tr>
+        </tr>
 
-        </tbody>
+      </tbody>
 
-      </table>
-
-    </div>
+    </table>
+</div>
   </div>
-﻿</div>
+</div>
+</div>

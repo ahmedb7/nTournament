@@ -1,5 +1,6 @@
 ﻿body {
 padding-top: 40px;
+background-color: steelblue;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -110,7 +111,7 @@ top: 0;
 
 }
 .mainContent{
-  background-color: steelblue;
+
 }
 
 p.thumbText{
@@ -127,6 +128,8 @@ p.thumbText{
 .panel-title > p{
   font-size: 1.5em;
 }
-.news{
-
+.newsWrapper{
+background-color: steelblue;
+}
+.newsLoop > table{
 }
