@@ -1,8 +1,9 @@
 ﻿<div class="pWrapper container-fluid">
-  <div class="mainContent container-fluid">
+  <div class="mainContent container-fluid" ng-model="tournaments">
     <div class="contestLarge row">
       <div class="tournament-listing panel-body thumbWrap col-md-12">
-        <div ng-repeat="tourL in tournaments | orderBy:important | limitTo:2" class="thumb col-md-6">
+        <div ng-repeat="tourL in tournaments | orderBy:tourL.important | limitTo:2" class="thumb col-md-6">
+          <p>{{tourL.name}}</p>
           <a href="#/tournaments/{{tourL.tournamentId}}" class="thumb"><img class="tournament" ng-src="{{tourL.tournamentthumb}}"></a>
         </div>
 
@@ -27,33 +28,38 @@
   <!--
   har försökt designa nyhetsflödet för att se bra ut när man loopar igenom flera nyheter
   !-->
-  <div class="news row-fluid">
+  <div class="news row-fluid" ng-model="newslist">
     <div class="newsWrapper panel panel-default">
-      <table ng-repeat="news in news" class="newsLoop table">
+      <table ng-repeat="newsitem in newslist" class="newsLoop table">
         <thead>
+          <tr>
+            <th>
           <div class="newsHeader panel-heading row">
             <div class="panel-title col-md-10">
               <p>
-                {{news.title}}
+                {{newsitem.title}}
               </p>
             </div>
             <div class="hashtags panel-title col-md-2">
               <p >
-                {{news.hashtags}}
+                {{newsitem.hashtags}}
               </p>
             </div>
           </div>
+        </th>
+        </tr>
 
         </thead>
         <tbody class="newsBody panel-body">
           <tr>
+            <td>
             <div class="newsContent">
               <p>
-                {{news.mainContent}}
+                {{newsitem.mainContent}}
               </p>
 
             </div>
-
+          </td>
           </tr>
 
         </tbody>

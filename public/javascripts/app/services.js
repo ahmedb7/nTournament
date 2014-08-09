@@ -24,6 +24,7 @@ function ($resource){
   newslist = newsData.query();
 
   this.news = function () {
+    console.log(newslist);
     return newslist;
   }
   this.addnewsdata = function (news) {
