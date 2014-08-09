@@ -1,39 +1,76 @@
-<div ﻿ng-model="tournament" class="page">
-
-<div class="row">
-  <div class="pageHeader col-md-12">
-    <div class="HeaderImage">
-      <img ng-src="{{tournament.tournamentHeaderImage}}">
+<div ﻿ng-model="tournament" class="container">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <div class="nav nav-sidebar col-md-10 well">
+        <h3>ActionPanel</h3>
+        <a href="{{tournament.streamLink}}"><button type="button" class="btn btn-info">Stream Link</button></a></li>
+        <a href="#/tournaments/{{tournament.tournamentId}}/createteam"><button type="button" class="btn btn-info">Create new team!</button></a>
+        <a href="#/tournaments/#}"><button type="button" class="btn btn-warning">back</button></a>
+      </div>
+    </div>
+    <div class="tournamentsWrapper col-sm-9 col-md-10">
+      <div class="pageHeader row">
+        <div class="headerImage well col-md-12">
+          <img class="thumb col-md-12" ng-src="{{tournament.tournamentHeaderImage}}">
+        </div>
+        <div class="tournamentDescription col-md-12 panel">
+          <h3>{{tournament.name}}</h3>
+          <div class="tHeader container fluid">
+            <div class="tContent col-md-10">
+              <div class="tImportant">
+                <h4>Important info:</h4>
+                <p>StartTime: {{tournament.tournamentStartTime}}</p>
+                <p>Registrations open: {{tournament.registrationStartTime}}</p>
+                <p>Registrations close: {{tournament.registrationEndTime}}</p>
+              </div>
+              <p>{{tournament.description}}</p>
+            </div>
+            <div>
+              rules
+            </div>
+            <div class="tRules well col-md-2">
+              <div ng-repeat="rule in tournament.rules">
+                <dt>{{rule.Key}}</dt>
+                <dd ng-repeat="ruleValue in rule.value">{{ruleValue}}</dd>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tTeams panel row-fluid">
+          <h3>Participating teams</h3>
+          <table class="table thumbnail tournament-listing">
+            <tbody>
+              <tr class="col-md-3" ng-repeat="team in tournament.teams">
+                <td>
+                  <img class="tournament" ng-src="{{team.teamLogoUrl}}"><img>
+                  <a href="#/teams/{{team.id}}"><h3>{{team.name}}</h3></a>
+                </p>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
-<h2>{{tournament.name}}</h2>
-<p>{{tournament.description}}</p>
-<p>{{tournament.name}}</p>
-<p>{{tournament.tournamentStartTime}}</p>
-<p>{{tournament.registrationStartTime}}</p>
-<p>{{tournament.registrationEndTime}}</p>
-<p>Rules<p/>
-<dl>
-  <div ng-repeat="rule in tournament.rules">
-  <dt>{{rule.Key}}</dt>
-    <dd ng-repeat="ruleValue in rule.value">{{ruleValue}}</dd>
-  </div>
-</dl>
-<p>Teams</p>
-<ul>
-  <li ng-repeat="team in tournament.teams">
-    <img ng-src="{{team.teamLogoUrl}}" height="80px" width="400px"><img>
-    <h3>{{team.name}}</h3>
-    <a href="#/teams/{{team.id}}" class="thumb"><img ng-src="{{team.teamLogoUrl}" height="80px" width="400px"></a>
-    <a href="#/teams/{{team.id}}">{{team.name}}</a>
-</li>
-  </li>
-</ul>
-
-
-<a href="#/tournaments/{{tournament.tournamentId}}/createteam"><button type="button" class="btn btn-info">Create new team!</button></a>
-<a href="{{tournament.streamLink}}"><button type="button" class="btn btn-info">{{tournament.streamLink}}</button></p>
-<a href="#/tournaments/#}"><button type="button" class="btn btn-warning">back</button></a>
 </div>
-﻿
+</div>
+
+
+
+
+
+
+
+
+<!-- <ul>
+<li ng-repeat="team in tournament.teams">
+<img ng-src="{{team.teamLogoUrl}}" height="80px" width="400px"><img>
+<h3>{{team.name}}</h3>
+<a href="#/teams/{{team.id}}" class="thumb"><img ng-src="{{team.teamLogoUrl}" height="80px" width="400px"></a>
+<a href="#/teams/{{team.id}}">{{team.name}}
+
+
+</li>
+</li>
+</ul> -->

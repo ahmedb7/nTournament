@@ -28,6 +28,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+
 app.get('/', routes.index);
 app.get('/partials/tournaments', routes.tournaments);
 app.get('/partials/tournamentdetails', routes.tournamentsdetails);
