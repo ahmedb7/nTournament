@@ -1,7 +1,7 @@
 ﻿var nTournamentControllers = angular.module('nTournamentControllers', []);
 var returnToTournamentList = '/tournament/list';
 nTournamentControllers.controller('TournamentMainCtrl', [
-    '$scope','Tournament','News',
+    '$scope','Tournament',
     function ($scope, Tournament) {
     $scope.tournaments = Tournament.tournaments();
 
@@ -17,7 +17,7 @@ nTournamentControllers.controller('TournamentMainCtrl', [
 nTournamentControllers.controller('TournamentNewsCtrl', [
     '$scope','News',
     function ($scope, News) {
-    $scope.newslist = News.newslist();
+    $scope.newslist = News.news();
 
 }
 
