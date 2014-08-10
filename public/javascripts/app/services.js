@@ -14,6 +14,7 @@ this.tournament = function (tournamentId) {
 }
 this.addTournament = function (tournament) {
     tournamentlist.push(tournament);
+    console.log(tournamentlist);
 
 }
 }
