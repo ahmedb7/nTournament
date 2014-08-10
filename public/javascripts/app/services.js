@@ -3,7 +3,7 @@
 nTournamentServices.service('Tournament',['$resource',
 function ($resource) {
   var tournamentlist =[];
-  var resourceData = $resource('/data/data.json');
+  var resourceData = $resource('/api/tourData');
   tournamentlist = resourceData.query();
 
 this.tournaments = function () {
@@ -13,7 +13,8 @@ this.tournament = function (tournamentId) {
     return Enumerable.From(tournamentlist).SingleOrDefault(null,function(i) { return i.tournamentId == tournamentId; });
 }
 this.addTournament = function (tournament) {
-    tournaments.push(tournament);
+    tournamentlist.push(tournament);
+
 }
 }
 ]);
@@ -24,7 +25,6 @@ function ($resource){
   newslist = newsData.query();
 
   this.news = function () {
-    console.log(newslist);
     return newslist;
   }
   this.addnewsdata = function (news) {

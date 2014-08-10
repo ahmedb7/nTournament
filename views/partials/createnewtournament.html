@@ -1,0 +1,27 @@
+<div ﻿ng-model="tournament" class="container">
+
+  <div class="row">
+    <div class="tournamentsWrapper">
+
+
+		<div id="tour-form" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form novalidate>
+					<div class="form-group">
+
+						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+						<input type="text" class="form-control input-lg text-center" placeholder="streamlink" ng-model="tournamentlist.streamLink">
+            <input type="text" class="form-control input-lg text-center" placeholder="tournamentID" ng-model="tournamentlist.tournamentId">
+
+					</div>
+
+					<!-- createToDo() WILL CREATE NEW TODOS -->
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="addTournament()">Add</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</div>
+  </div>
+</div>

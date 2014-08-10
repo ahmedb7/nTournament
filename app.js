@@ -9,6 +9,47 @@ var http = require('http');
 var path = require('path');
 var app = express();
 
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://perihelios:Sommar2014@mongo.wugget.com:1212/ntournament');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log("db connection established")
+  // yay!
+});
+
+//är inte säker på om modelen borde ligga här, relocate at your leisure
+var tournamentSchema = mongoose.Schema({
+  tournamentId:String,
+  name:String,
+  tournamentCreated: { type: Date, default: Date.now },
+  tournamentStartTime:Date,
+  registrationStartTime:Date,
+  registrationEndTime:Date,
+  streamLink: String,
+  priority: Number,
+  rules: [{
+    key:String,
+    values:[String]
+  }],
+  teams:[{
+  id:String,
+  name:String,
+  teamLogoUrl:String,
+  members:{
+    id:String,
+    username:String,
+    inGameName:String,
+    avatarurl:String
+  },
+  description:String
+  }]
+
+});
+var tournamentData = mongoose.model('tournamentData', tournamentSchema)
+
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -27,12 +68,82 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
-
 app.get('/', routes.index);
 app.get('/partials/tournaments', routes.tournaments);
 app.get('/partials/tournamentdetails', routes.tournamentsdetails);
 app.get('/partials/createnewtournament',routes.createnewtournament);
+//api ahead, here be dragons------
+app.get('/api/tourData', function(req, res) {
+		// use mongoose to get all tournamentData in the database
+		tournamentData.find(function(err, tournamentData) {
+
+			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+			if (err)
+				res.send(err)
+
+			res.json(tournamentData); // return all todos in JSON format
+		});
+	});
+
+	// create todo and send back all todos after creation
+app.post('/api/tourData', function(req, res) {
+
+		// create a todo, information comes from AJAX request from Angular
+		tournamentData.create({
+			tournamentId : String,
+      name : String,
+      tournamentStartTime : Date,
+      registrationStartTime:Date,
+      registrationEndTime:Date,
+      streamLink: String,
+      priority: Number,
+      rules: [{
+        key:String,
+        values:[String]
+      }],
+      teams:[{
+      id:String,
+      name:String,
+      teamLogoUrl:String,
+      members:{
+        id:String,
+        username:String,
+        inGameName:String,
+        avatarurl:String
+      },
+      description:String
+    }],
+			done : false
+		}, function(err, tournamentData) {
+			if (err)
+				res.send(err);
+
+			// get and return all the todos after you create another
+			tournamentData.find(function(err, tourData) {
+				if (err)
+					res.send(err)
+				res.json(tourData);
+			});
+		});
+
+	});
+
+	// delete a todo
+app.delete('/api/tourData/:tournamentData_id', function(req, res) {
+		tournamentData.remove({
+			_id : req.params.todo_id
+		}, function(err, tournamentData) {
+			if (err)
+				res.send(err);
+
+			// get and return all the todos after you create another
+			tournamentData.find(function(err, tourData) {
+				if (err)
+					res.send(err)
+				res.json(tourData);
+			});
+		});
+	});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

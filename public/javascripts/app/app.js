@@ -21,7 +21,7 @@ nTournamentApp.config([
     }).
             when('/createnewtournament',
             {
-              templateUrl: 'createnewtournament',
+              templateUrl: 'partials/createnewtournament',
               controller: 'TournamentMainCtrl'
             }).
             otherwise({
