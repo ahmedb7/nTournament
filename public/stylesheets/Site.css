@@ -40,8 +40,7 @@ textarea {
 /** Detail View **/
 img.tournament {
   float: left;
-  margin-right: 3em;
-  margin-bottom: 2em;
+
   background-color: white;
   padding: 1em;
   height: 100%;
@@ -131,6 +130,10 @@ background-color: steelblue;
 .tTeams > h3{
   text-align:center;
 }
+.tTeamContainer {
+  min-height:150px;
+
+  }
 .tournamentDescription > h3{
   text-align:center;
 }
@@ -138,4 +141,11 @@ ol.breadcrumb{
 
   z-index:1000;
 
+}
+img.tTeamContainer{
+  height: 100%;
+  width: 100%;
+}
+p.tour-repeat{
+  background-color:white;
 }
