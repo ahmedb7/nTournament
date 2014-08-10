@@ -16,32 +16,34 @@
         <div class="tournamentDescription col-md-12 panel">
           <h3>{{tournament.name}}</h3>
           <div class="tHeader container fluid">
-            <div class="tContent col-md-10">
-              <div class="tImportant">
-                <h4>Important info:</h4>
-                <p>StartTime: {{tournament.tournamentStartTime}}</p>
-                <p>Registrations open: {{tournament.registrationStartTime}}</p>
-                <p>Registrations close: {{tournament.registrationEndTime}}</p>
+            <div class="tContent col-md-12">
+              <div class="col-md-8">
+                <p>{{tournament.description}}</p>
               </div>
-              <p>{{tournament.description}}</p>
-            </div>
+              <div class="tImportant  col-md-4">
+                <div class="importantInfo well well-sm">
+                  <h4>Important info:</h4>
+                  <p>StartTime: {{tournament.tournamentStartTime}}</p>
+                  <p>Registrations open: {{tournament.registrationStartTime}}</p>
+                  <p>Registrations close: {{tournament.registrationEndTime}}</p>
 
-            <div class="tRules col-md-2">
-              <div class="tRuleHead">
-                rules
-              </div>
-              <div class="tRuleCont well">
-                <div ng-repeat="rule in tournament.rules">
-                  <dt>{{rule.Key}}</dt>
-                  <dd ng-repeat="ruleValue in rule.value">{{ruleValue}}</dd>
+                </div>
+
+                <div class="tRuleCont well well-sm">
+                  <h4>rules:</h4>
+                  <div ng-repeat="rule in tournament.rules">
+
+                    <dt>{{rule.Key}}</dt>
+                    <dd ng-repeat="ruleValue in rule.value">{{ruleValue}}</dd>
+                  </div>
+                </div>
+                <div class="tStream">
+
+                  <a href="{{tournament.streamLink}}"><button type="button" class="btn btn-block btn-info">Stream Link</button></a></li>
+
                 </div>
               </div>
 
-              <div class="tStream">
-
-                <a href="{{tournament.streamLink}}"><button type="button" class="btn btn-block btn-info">Stream Link</button></a></li>
-
-              </div>
             </div>
           </div>
         </div>

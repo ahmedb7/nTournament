@@ -7,7 +7,7 @@
           <div class="tournament-listing panel-body thumbWrap col-md-12">
             <div ng-repeat="tourL in tournaments | orderBy:tourL.important | limitTo:2" class="thumb col-md-6">
 
-              <a href="#/tournaments/{{tourL.tournamentId}}" class="thumb"><img class="tournament" ng-src="{{tourL.tournamentthumb}}"></a>
+              <a href="#/tournaments/{{tourL.tournamentId}}" class="thumb"><img class="tournament img-rounded" ng-src="{{tourL.tournamentthumb}}"></a>
               <h3 class="well well-sm">{{tourL.name}}</h3>
             </div>
 
