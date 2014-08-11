@@ -21,14 +21,13 @@ TournamentList.prototype = {
 },
 single: function(req,res)
 {
-  tournament.findOne({id: params.tournamentData_id req.function(err,tournamentData)
-  {
+  tournament.findOne({'tournamentId': req.params.tournamentData_id}, function(err, tournamentData){
     if(err)
       res.send(err)
 
       res.json(tournamentData)
-  })
-}
+});
+},
 addTournament: function(req,res)
 {
     var item = req.body;
