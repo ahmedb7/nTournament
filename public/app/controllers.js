@@ -19,7 +19,7 @@ nTournamentControllers.controller('TournamentMainCtrl', [
 
 nTournamentControllers.controller('TournamentDetailsCtrl', ['$scope', '$routeParams', 'Tournament',
     function ($scope, $routeParams, Tournament) {
-    $scope.tournament = Tournament.get({tournamentId: $routeParams.tournamentId});
+    $scope.tournament = Tournament.get({id: $routeParams.tournamentId});
 
     $scope.UpdateTournament = function()
     {

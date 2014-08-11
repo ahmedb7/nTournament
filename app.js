@@ -51,9 +51,11 @@ app.get('/partials/createnewtournament',routes.createnewtournament);
 //api ahead, here be dragons------
 app.get('/api/tourData', tournamentList.list.bind(tournamentList));
 // create tournament and send back all tournaments after creation
+app.get('/api/tourData/:tournamentData_id',tournamentList.single.bind(tournamentList));
 app.post('/api/tourData', tournamentList.addTournament.bind(tournamentList));
 // delete a tournament
 app.delete('/api/tourData/:tournamentData_id', tournamentList.deleteTournament.bind(tournamentList));
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

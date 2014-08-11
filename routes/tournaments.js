@@ -15,10 +15,20 @@ TournamentList.prototype = {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
           res.send(err)
-          
+
         res.json(tournamentData); // return all tournaments in JSON format
       });
 },
+single: function(req,res)
+{
+  tournament.findOne({id: params.tournamentData_id req.function(err,tournamentData)
+  {
+    if(err)
+      res.send(err)
+
+      res.json(tournamentData)
+  })
+}
 addTournament: function(req,res)
 {
     var item = req.body;
@@ -48,7 +58,7 @@ addTournament: function(req,res)
 deleteTournament: function(req,res)
 {
   tournament.remove({
-    _id : req.params.todo_id
+    _id : req.params.tournamentData_id
   }, function(err, tournamentData) {
     if (err)
       res.send(err);
