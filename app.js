@@ -11,7 +11,7 @@ var app = express();
 
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://perihelios:Sommar2014@mongo.wugget.com:1212/ntournament');
+mongoose.connect(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
