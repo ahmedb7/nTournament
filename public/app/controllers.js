@@ -2,16 +2,16 @@
 var returnToTournamentList = '/tournament/list';
 
 nTournamentControllers.controller('TournamentMainCtrl', [
-    '$scope','Tournament','News',
-    function ($scope, Tournament, News) {
+    '$scope','Tournament','News','RandomShortGuid',
+    function ($scope, Tournament, News,RandomShortGuid) {
     $scope.newTournament = new Tournament();
     $scope.tournaments = Tournament.query();
     $scope.newslist = News.news();
     $scope.orderProp = ['priority', 'name'];
     $scope.addTournament = function () {
+      $scope.newTournament.tournamentId = RandomShortGuid();
       $scope.newTournament.$save();
     };
-    $scope.removeTournament
 
 
 }
