@@ -1,23 +1,38 @@
-﻿var nTournamentServices = angular.module('nTournamentServices', ['ngResource']);
+ var module = angular.module( 'my.resource', [ 'ngResource' ] );
 
-nTournamentServices.service('Tournament',['$resource',
+  module.factory( 'Resource', [ '$resource', function( $resource ) {
+   return function( url, params, methods ) {
+      var defaults = {
+       update: { method: 'put', isArray: false },
+       create: { method: 'post' }
+     };
+
+     methods = angular.extend( defaults, methods );
+
+     var resource = $resource( url, params, methods );
+
+     resource.prototype.$save = function() {
+       if ( !this.id ) {
+         return this.$create();
+       }
+       else {
+         return this.$update();
+       }
+     };
+
+     return resource;
+   };
+ }]);﻿
+
+
+
+var nTournamentServices = angular.module('nTournamentServices', ['my.resource']);
+
+nTournamentServices.factory('Tournament',['$resource',
 function ($resource) {
-  var tournamentlist =[];
-  var resourceData = $resource('/api/tourData');
-  tournamentlist = resourceData.query();
+  return $resource('/api/tourData/:id',{id: "@id"});
+}]);
 
-this.tournaments = function () {
-    return tournamentlist;
-};
-this.tournament = function (tournamentId) {
-    return Enumerable.From(tournamentlist).SingleOrDefault(null,function(i) { return i.tournamentId == tournamentId; });
-}
-this.addTournament = function (tournament) {
-    tournamentlist.push(tournament);
-
-}
-}
-]);
 nTournamentServices.service('News',['$resource',
 function ($resource){
   var newslist = [];
