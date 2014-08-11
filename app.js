@@ -22,7 +22,7 @@ var app = express();
 //är inte säker på om modelen borde ligga här, relocate at your leisure
 
 var TournamentList = require('./routes/tournaments.js');
-var tournamentList = new TournamentList("process.env.CUSTOMCONNSTR_MONGOLAB_URI");
+var tournamentList = new TournamentList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 
 
 // all environments
