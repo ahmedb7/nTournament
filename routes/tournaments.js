@@ -10,19 +10,23 @@ function TournamentList(connection)
 TournamentList.prototype = {
   list: function(req, res) {
       // use mongoose to get all tournamentData in the database
-      tournamentData.find(function(err, tournamentData) {
+      tournament.find(function(err, tournamentData) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
           res.send(err)
-
+          
         res.json(tournamentData); // return all tournaments in JSON format
       });
 },
 addTournament: function(req,res)
 {
-    var item = req.body.item;
+    var item = req.body;
     newTournament = new tournament();
+    console.log('Indata:');
+    console.log(item);
+    console.log('Tournament Added:');
+
 
     newTournament.tournamentId = item.tournamentId;
     newTournament.name = item.name;
@@ -34,7 +38,7 @@ addTournament: function(req,res)
     newTournament.rules = item.rules;
     newTournament.teams = item.teams;
     newTournament.description = item.description;
-
+    console.log(newTournament);
     newTournament.save(function savedTournament(err)
     {
       if (err)
@@ -43,18 +47,11 @@ addTournament: function(req,res)
 },
 deleteTournament: function(req,res)
 {
-  tournamentData.remove({
+  tournament.remove({
     _id : req.params.todo_id
   }, function(err, tournamentData) {
     if (err)
       res.send(err);
-
-    // get and return all the todos after you create another
-    tournamentData.find(function(err, tourData) {
-      if (err)
-        res.send(err)
-      res.json(tourData);
     });
-  });
 }
 }
