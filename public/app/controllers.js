@@ -9,7 +9,7 @@ nTournamentControllers.controller('TournamentMainCtrl', [
     $scope.newslist = News.news();
     $scope.orderProp = ['priority', 'name'];
     $scope.addTournament = function () {
-      $scope.newTournament.tournamentId = RandomShortGuid();
+      $scope.newTournament.tournamentId = RandomShortGuid;
       $scope.newTournament.$save();
     };
 
