@@ -88,42 +88,36 @@ app.get('/api/tourData', function(req, res) {
 	// create todo and send back all todos after creation
 app.post('/api/tourData', function(req, res) {
 
-		// create a todo, information comes from AJAX request from Angular
-		tournamentData.create({
-			tournamentId : String,
-      name : String,
-      tournamentStartTime : Date,
-      registrationStartTime:Date,
-      registrationEndTime:Date,
-      streamLink: String,
-      priority: Number,
-      rules: [{
-        key:String,
-        values:[String]
-      }],
-      teams:[{
-      id:String,
-      name:String,
-      teamLogoUrl:String,
-      members:{
-        id:String,
-        username:String,
-        inGameName:String,
-        avatarurl:String
-      },
-      description:String
-    }],
-			done : false
+		// information comes from AJAX request from Angular
+
+tournamentData.create({
+  tournamentId:req.body.tournamentId,
+  name:req.body.name,
+  tournamentStartTime:req.body.tournamentStartTime,
+  registrationStartTime:req.body.registrationStartTime,
+  registrationEndTime:req.body.registrationEndTime,
+  streamLink:req.body.streamLink,
+  priority:req.body.priority,
+  rules:[{
+    key:req.body.key,
+    values:req.body.values
+  }],
+  teams:[{
+  id:req.body.id,
+  name:req.body.name,
+  teamLogoUrl:req.body.teamLogoUrl,
+  members:{
+    id:req.body.id,
+    username:req.body.username,
+    inGameName:req.body.inGameName,
+    avatarurl:req.body.avatarurl
+  },
+  description:req.body.description
+}],
 		}, function(err, tournamentData) {
 			if (err)
 				res.send(err);
 
-			// get and return all the todos after you create another
-			tournamentData.find(function(err, tourData) {
-				if (err)
-					res.send(err)
-				res.json(tourData);
-			});
 		});
 
 	});
