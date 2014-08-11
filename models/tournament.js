@@ -4,6 +4,8 @@ Schema = mongoose.Schema;
 var tournamentSchema = new Schema({
   tournamentId:String,
   name:String,
+  tournamentthumb:String,
+  tournamentHeaderImage:String,
   tournamentCreated: { type: Date, default: Date.now },
   tournamentStartTime:Date,
   registrationStartTime:Date,

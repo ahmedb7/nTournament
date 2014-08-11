@@ -149,3 +149,7 @@ img.tTeamContainer{
 p.tour-repeat{
   background-color:white;
 }
+.summary > ul{
+  list-style: none;
+
+}

@@ -1,28 +1,108 @@
-<div class="container" ng-model="newTournament">
+<div class="container" ng-model="newTournament" ng-init="count=0">
 
   <div class="row">
     <div class="tournamentsWrapper">
 
 
-		<div id="tour-form" class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
-				<form novalidate>
-					<div class="form-group">
 
-						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="streamlink" ng-model="newTournament.streamLink">
-            <input type="text" class="form-control input-lg text-center" placeholder="name" ng-model="newTournament.name">
-            <textarea rows="4" class="form-control input-lg text-center" placeholder="description" ng-model="newTournament.description"></textarea>
 
-					</div>
+      <div class="col-md-10">
+<progressbar class="progress-striped active" type="success" value="count" max="5"></progressbar>
 
-					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="addTournament(newTournament)">Add</button>
-				</form>
-			</div>
-		</div>
+        <form novalidate>
 
-	</div>
-</div>
+          <div class="section1 col-md-8 row" ng-show="count==0">
+            <div class="form col-md-8">
+
+
+              <input type="text" class="form-control input-lg text-center" placeholder="tournament name" ng-model="newTournament.name">
+              <img ng-src="http://i.imgur.com/vkW3Lhe.jpg" ng-show="newTournament.name == 'cat'">
+              <textarea rows="4" class="form-control input-lg text-center" placeholder="description" ng-model="newTournament.description"></textarea>
+              <input type="text" class="form-control input-lg text-center" placeholder="tournament thumb" ng-model="newTournament.tournamentthumb">
+              <input type="text" class="form-control input-lg text-center" placeholder="tournament Header" ng-model="newTournament.tournamentHeaderImage">
+            </div>
+            <div class="preview col-md-4">
+              <img class="img img-thumbnail" ng-src="{{newTournament.tournamentHeaderImage}}">
+            </div>
+          </div>
+          <div class="section2" ng-show="count==1">
+            <input type="date" class="form-control input-lg text-center" placeholder="tournamentStartTime" ng-model="newTournament.tournamentStartTime">
+            <input type="date" class="form-control input-lg text-center" placeholder="registrationStartTime" ng-model="newTournament.registrationStartTime">
+            <input type="date" class="form-control input-lg text-center" placeholder="registrationEndTime" ng-model="newTournament.registrationEndTime">
+          </div>
+          <div class="section3" ng-show="count==2">
+            <input type="text" class="form-control input-lg text-center" placeholder="streamLink" ng-model="newTournament.streamLink">
+            <input type="text" class="form-control input-lg text-center" placeholder="priority" ng-model="newTournament.priority">
+            <input type="text" class="form-control input-lg text-center" placeholder="rules key" ng-model="newTournament.rules.key">
+            <input type="text" class="form-control input-lg text-center" placeholder="rules values" ng-model="newTournament.rules.values">
+          </div>
+
+          <div class="section4" ng-show="count==3">
+            <input type="text" class="form-control input-lg text-center" placeholder="teams.id" ng-model="newTournament.teams.id">
+            <input type="text" class="form-control input-lg text-center" placeholder="teams.name" ng-model="newTournament.teams.name">
+            <input type="text" class="form-control input-lg text-center" placeholder="teamLogoUrl" ng-model="newTournament.teams.teamLogoUrl">
+          </div>
+          <div class="section5" ng-show="count==4">
+            <input type="text" class="form-control input-lg text-center" placeholder="members id" ng-model="newTournament.teams.members.id">
+            <input type="text" class="form-control input-lg text-center" placeholder="username" ng-model="newTournament.teams.members.username">
+            <input type="text" class="form-control input-lg text-center" placeholder="inGameName" ng-model="newTournament.teams.members.inGameName">
+            <input type="text" class="form-control input-lg text-center" placeholder="avatarurl" ng-model="newTournament.teams.members.avatarurl">
+
+          </div>
+          <div class="section6" ng-show="count==5">
+            <div class="summary well">
+              <h3>Please review before submiting</h3>
+              <ul>
+                <li><h2>{{newTournament.name}}</h2></li>
+                <li><img class="tournament" ng-src="{{newTournament.tournamentHeaderImage}}"></li>
+                <li>{{newTournament.tournamentStartTime}}
+                  <li>{{newTournament.tournamentStartTime}}
+                  </li>
+                  <li>{{newTournament.registrationEndTime}}
+                  </li>
+                  <li>{{newTournament.streamLink}}
+                  </li>
+                  <li>{{newTournament.priority}}
+                  </li>
+                  <li>{{newTournament.rules}}
+                  </li>
+                  <li>{{newTournament.teams}}
+                  </li>
+                  <li>{{newTournament.description}}
+                  </li>
+                </ul>
+
+              </div>
+              <a href="#/tournaments/#">
+                <button type="submit" class="btn btn-block btn-warning" ng-click="addTournament(newTournament)">Submit</button>
+              </a>
+            </div>
+
+          </form> <!--ALL the inputs !-->
+
+
+
+
+
+
+        </div>
+        <div class="col-md-2">
+
+          <div class="sectionControll col-md-12" ng-show="count!=5">
+            <button class="btn btn-block btn-success" ng-click="count = count + 1">
+              next
+            </button>
+          </div>
+          <div class="sectionControll col-md-12" ng-show="count!=0">
+
+            <button class="btn btn-block" ng-click="count = count - 1">
+              back
+            </button>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
   </div>
-</div>

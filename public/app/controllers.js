@@ -1,4 +1,4 @@
-﻿var nTournamentControllers = angular.module('nTournamentControllers', []);
+﻿var nTournamentControllers = angular.module('nTournamentControllers', ['ui.bootstrap']);
 var returnToTournamentList = '/tournament/list';
 
 nTournamentControllers.controller('TournamentMainCtrl', [
