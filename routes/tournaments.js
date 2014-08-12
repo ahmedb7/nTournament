@@ -39,6 +39,8 @@ addTournament: function(req,res)
 
     newTournament.tournamentId = item.tournamentId;
     newTournament.name = item.name;
+    newTournament.game = item.game;
+    newTournament.genre = item.genre;
     newTournament.tournamentthumb = item.tournamentthumb;
     newTournament.tournamentHeaderImage = item.tournamentthumb;
     newTournament.tournamentStartTime = item.tournamentStartTime;
