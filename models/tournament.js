@@ -6,6 +6,7 @@ var tournamentSchema = new Schema({
   name:String,
   game:String,
   genre:String,
+  description:String,
   tournamentthumb:String,
   tournamentHeaderImage:String,
   tournamentCreated: { type: Date, default: Date.now },
@@ -28,7 +29,6 @@ var tournamentSchema = new Schema({
     inGameName:String,
     avatarurl:String
   },
-  description:String
   }]
 
 });

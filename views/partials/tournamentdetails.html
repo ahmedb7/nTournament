@@ -12,15 +12,18 @@
         </div>
         <div class="tournamentDescription col-md-12 panel">
           <h3>{{tournament.name}}</h3>
-          <h4>{{tournament.genre}}</h4>
+
           <div class="tHeader container fluid">
             <div class="tContent col-md-12">
               <div class="col-md-8">
                 <p>{{tournament.description}}</p>
               </div>
               <div class="tImportant  col-md-4">
+
                 <div class="importantInfo well well-sm">
                   <h4>Important info:</h4>
+                  <p>Game: {{tournament.game}}</p>
+                  <p>Genre: {{tournament.genre}}</p>
                   <p>StartTime: {{tournament.tournamentStartTime}}</p>
                   <p>Registrations open: {{tournament.registrationStartTime}}</p>
                   <p>Registrations close: {{tournament.registrationEndTime}}</p>
