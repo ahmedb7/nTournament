@@ -24,9 +24,9 @@
                   <h4>Important info:</h4>
                   <p>Game: {{tournament.game}}</p>
                   <p>Genre: {{tournament.genre}}</p>
-                  <p>StartTime: {{tournament.tournamentStartTime}}</p>
-                  <p>Registrations open: {{tournament.registrationStartTime}}</p>
-                  <p>Registrations close: {{tournament.registrationEndTime}}</p>
+                  <p>StartTime: {{tournament.tournamentStartTime  | date: 'yyyy-MM-dd HH:mm'}}</p>
+                  <p>Registrations open: {{tournament.registrationStartTime | date: 'yyyy-MM-dd HH:mm'}}</p>
+                  <p>Registrations close: {{tournament.registrationEndTime  | date: 'yyyy-MM-dd HH:mm'}}</p>
 
                 </div>
 

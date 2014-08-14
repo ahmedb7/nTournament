@@ -10,19 +10,10 @@ var path = require('path');
 var app = express();
 
 
-//var mongoose = require('mongoose');
-//mongoose.connect(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
-//var db = mongoose.connection;
-//db.on('error', console.error.bind(console, 'connection error:'));
-//db.once('open', function callback () {
-//  console.log("db connection established")
-  // yay!
-//});
-
 //är inte säker på om modelen borde ligga här, relocate at your leisure
 
 var TournamentList = require('./routes/tournaments.js');
-var tournamentList = new TournamentList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
+var tournamentList = new TournamentList('mongodb://wleusdb01:l.ijY2JkJXruT68_wr_zypBCC_4MQNRqTHUdIUE_FaQ-@ds035787.mongolab.com:35787/wleusdb01');
 
 
 // all environments
