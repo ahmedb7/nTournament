@@ -7,10 +7,16 @@
     "name": "oremse",
     "email": ""
   },
+  "contributors": [{
+    "name": "jdamm",
+    "email": ""
+  }],
+
   "repository":{
     "type": "git",
     "url":"https://github.com/mollyporph/nTournamentApp"
   },
+
   "dependencies": {
     "express": "~3.4.4",
     "jade": "*",
@@ -18,5 +24,12 @@
     "angular": "1.2.19",
     "ejs": "~1.0.0",
     "mongoose":"*"
+  },
+  "Comments":{
+    "//":"i hate the angular package",
+    "//":""
+
+
   }
+
 }
