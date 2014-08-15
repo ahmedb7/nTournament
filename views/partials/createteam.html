@@ -1,0 +1,25 @@
+<div class="container tournamentsWrapper" ng-model="newTournament">
+<div class="row">
+  <div class="col-md-9 well">
+<input type="text" class="form-control input-lg text-center" placeholder="tournament thumb" ng-model="newTournament.tournamentthumb">
+
+
+  </div>
+  <div class="col-md-3">
+
+
+  <div class="herebedragons">
+    	<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Active tournaments</button>
+	<hr>
+	<div collapse="!isCollapsed">
+		<div class="well">
+      <div class="content" ng-repeat="tour in tournaments">
+        {{tour.name}} <span class="badge">{{tour.genre}}</span>
+      </div>
+
+    </div>
+	</div>
+  </div>
+</div>
+</div>
+</div>
