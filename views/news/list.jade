@@ -1,0 +1,15 @@
+.news.row-fluid(ng-model='newslist')
+  .newsWrapper
+    .newsLoop(ng-repeat='newsitem in newslist')
+      .panel.panel-success
+        .panel-heading
+          h5 News From The Front!
+        .panel-body
+          .media
+            a.pull-left(href='#')
+              img.media-object.img-rounded.tournament(ng-src='{{newsitem.articleThumb}}', alt='...')
+            .media-body
+              h4.media-heading {{newsitem.title}}
+              |                     {{newsitem.mainContent}}
+          .panel-footer
+            | {{newsitem.hashtags}}

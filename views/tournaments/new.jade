@@ -1,0 +1,66 @@
+html
+  body
+    .container(ng-model='newTournament', ng-init='count=0')
+      .row
+        .tournamentsWrapper
+          .col-md-10.well
+            progressbar.progress-striped.active(type='success', value='count', max='3')
+            form
+              .section1.col-md-12.row(ng-show='count==0')
+                .form.col-md-8
+                  input.form-control.input-lg.text-center(type='text', placeholder='tournament name', ng-model='newTournament.name')
+                  img(ng-src='http://i.imgur.com/vkW3Lhe.jpg', ng-show="newTournament.name == 'cat'")
+                  textarea.form-control.input-lg.text-center(rows='4', placeholder='description', ng-model='newTournament.description')
+                  input.form-control.input-lg.text-center(type='text', placeholder='tournament thumb', ng-model='newTournament.tournamentthumb')
+                  input.form-control.input-lg.text-center(type='text', placeholder='tournament Header', ng-model='newTournament.tournamentHeaderImage')
+                .preview.col-md-4
+                  img.img.img-responsive.tournament(ng-src='{{newTournament.tournamentHeaderImage}}')
+              .section2.col-md-12.row(ng-show='count==1')
+                input.form-control.input-lg.text-center(type='date', placeholder='tournamentStartTime', ng-model='newTournament.tournamentStartTime')
+                input.form-control.input-lg.text-center(type='date', placeholder='registrationStartTime', ng-model='newTournament.registrationStartTime')
+                input.form-control.input-lg.text-center(type='date', placeholder='registrationEndTime', ng-model='newTournament.registrationEndTime')
+              .section3.col-md-12.row(ng-show='count==2')
+                input.form-control.input-lg.text-center(type='text', placeholder='streamLink', ng-model='newTournament.streamLink')
+                input.form-control.input-lg.text-center(type='text', placeholder='priority', ng-model='newTournament.priority')
+                input.form-control.input-lg.text-center(type='text', placeholder='game/Title', ng-model='newTournament.game')
+                input.form-control.input-lg.text-center(type='text', placeholder='genre', ng-model='newTournament.genre')
+                input.form-control.input-lg.text-center(type='text', placeholder='rules key', ng-model='newTournament.rules.key')
+                input.form-control.input-lg.text-center(type='text', placeholder='rules values', ng-model='newTournament.rules.values')
+              .section4.col-md-12.row(ng-show='count==3')
+                .summary.well
+                  h3 Please review before submiting
+                  ul
+                    li
+                      h2 {{newTournament.name}}
+                    li
+                      img.tournament(ng-src='{{newTournament.tournamentHeaderImage}}')
+                    li
+                      | {{newTournament.tournamentStartTime}}
+                    li
+                      | {{newTournament.tournamentStartTime}}
+                    li
+                      | {{newTournament.registrationEndTime}}
+                    li
+                      | {{newTournament.game}}
+                    li
+                      | {{newTournament.genre}}
+                    li
+                      | {{newTournament.streamLink}}
+                    li
+                      | {{newTournament.priority}}
+                    li
+                      | {{newTournament.rules}}
+                    li
+                      | {{newTournament.teams}}
+                    li
+                      | {{newTournament.description}}
+                a(href='#/tournaments/#')
+                  button.btn.btn-block.btn-warning(type='submit', ng-click='addTournament(newTournament)') Submit
+          // ALL the inputs !
+        .col-md-2
+          .sectionControll.col-md-12(ng-show='count!=3')
+            button.btn.btn-block.btn-success(ng-click='count = count + 1')
+              | next
+          .sectionControll.col-md-12(ng-show='count!=0')
+            button.btn.btn-block(ng-click='count = count - 1')
+              | back

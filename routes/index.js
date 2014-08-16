@@ -4,14 +4,14 @@
  */
 
 exports.index = function(req, res){
-  res.render('index.html');
+  res.render('index.jade');
 };
-exports.tournaments = function (req, res) {
-    res.render('partials/tournaments.html');
+exports.tournamentList = function (req, res) {
+    res.render('tournaments/list.jade');
 };
-exports.tournamentsdetails = function (req, res) {
-    res.render('partials/tournamentdetails.html');
+exports.tournamentsDetails = function (req, res) {
+    res.render('tournaments/details.jade');
 };
-exports.createnewtournament = function(req,res){
-  res.render('partials/createnewtournament.html');
+exports.newTournament = function(req,res){
+  res.render('tournaments/new.jade');
 };

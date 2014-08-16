@@ -35,9 +35,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 app.get('/', routes.index);
-app.get('/partials/tournaments', routes.tournaments);
-app.get('/partials/tournamentdetails', routes.tournamentsdetails);
-app.get('/partials/createnewtournament',routes.createnewtournament);
+app.get('/tournaments/list', routes.tournamentList);
+app.get('/tournaments/details', routes.tournamentsDetails);
+app.get('/tournaments/new',routes.newTournament);
 
 //api ahead, here be dragons------
 app.get('/api/tourData', tournamentList.list.bind(tournamentList));
