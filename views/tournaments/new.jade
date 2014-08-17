@@ -27,35 +27,38 @@ html
                 input.form-control.input-lg.text-center(type='text', placeholder='rules key', ng-model='newTournament.rules.key')
                 input.form-control.input-lg.text-center(type='text', placeholder='rules values', ng-model='newTournament.rules.values')
               .section4.col-md-12.row(ng-show='count==3')
-                .summary.well
+                .summary.well.col-md-12
                   h3 Please review before submiting
-                  ul
-                    li
-                      h2 {{newTournament.name}}
-                    li
-                      img.tournament(ng-src='{{newTournament.tournamentHeaderImage}}')
-                    li
-                      | {{newTournament.tournamentStartTime}}
-                    li
-                      | {{newTournament.tournamentStartTime}}
-                    li
-                      | {{newTournament.registrationEndTime}}
-                    li
-                      | {{newTournament.game}}
-                    li
-                      | {{newTournament.genre}}
-                    li
-                      | {{newTournament.streamLink}}
-                    li
-                      | {{newTournament.priority}}
-                    li
-                      | {{newTournament.rules}}
-                    li
-                      | {{newTournament.teams}}
-                    li
-                      | {{newTournament.description}}
-                a(href='#/tournaments/#')
+                    ul
+                      li
+                        h2{{newTournament.name}}
+                      li
+                        img.tournament(ng-src='{{newTournament.tournamentHeaderImage}}')
+                      li
+                        p{{newTournament.tournamentStartTime}}
+                      li
+                        p{{newTournament.tournamentStartTime}}
+                      li
+                        p{{newTournament.registrationEndTime}}
+                      li
+                        p{{newTournament.game}}
+                      li
+                        p{{newTournament.genre}}
+                      li
+                        p{{newTournament.streamLink}}
+                      li
+                        p{{newTournament.priority}}
+                      li
+                        p{{newTournament.rules}}
+                      li
+                        p{{newTournament.teams}}
+                      li
+                        p{{newTournament.description}}
+
+              .submit.well.col-md-12(ng-show='count==3')
+                a(href='#/tournaments/list#')
                   button.btn.btn-block.btn-warning(type='submit', ng-click='addTournament(newTournament)') Submit
+
           // ALL the inputs !
         .col-md-2
           .sectionControll.col-md-12(ng-show='count!=3')

@@ -1,12 +1,12 @@
 html
   body
-    .pWrapper.container
+    .pWrapper.container(ng-model='tournaments')
       .row
         .col-md-12
-          .mainContent.container-fluid(ng-model='tournaments')
+          .mainContent.container-fluid
             .contestLarge.row
               .tournament-listing.panel-body.thumbWrap.col-md-12
-                .thumb.col-md-6(ng-repeat='tourL in tournaments | orderBy:tourL.important | limitTo:2')
+                .thumb.limitbreaker.col-md-6(ng-repeat='tourL in tournaments | orderBy:tourL.important | limitTo:2')
                   a.thumb(href='#/tournaments/{{tourL.tournamentId}}')
                     img.tournament.img.img-thumbnail(ng-src='{{tourL.tournamentthumb}}')
                   h3.panel.contestLarge.panel-sm {{tourL.name}}
@@ -14,10 +14,12 @@ html
             .contestWrapper.well.container-fluid
               .contestSmall.row
                 .tournament-listing
-                  .tour-repeat.col-md-4.panel-sm(ng-repeat='tour in tournaments | orderBy:tournamentCreated')
-                    a.thumb(href='#/tournaments/{{tour.tournamentId}}')
-                      img.tournament.img-rounded(ng-src='{{tour.tournamentthumb}}')
-                    a(href='#/tournaments/{{tour.tournamentId}}')
-                      p.thumbText
-                      p.tour-repeat
-                        | {{tour.name}}
+                  .tour-repeat.panel-sm
+                    .row.col-md-12
+                      .limitwrapper.col-md-4(ng-repeat='tour in tournaments | orderBy : tournamentCreated')
+                        a.thumb(href='#/tournaments/{{tour.tournamentId}}')
+                          img.tournament.img-rounded(ng-src='{{tour.tournamentthumb}}')
+                        a(href='#/tournaments/{{tour.tournamentId}}')
+                          p.thumbText
+                          p.tour-repeat
+                            | {{tour.name}}

@@ -36,14 +36,28 @@ textarea {
   clear: both;
 
 }
+.limitbreaker{
+  max-height:30em;
+  overflow:hidden;
+
+}
+.limitwrapper{
+
+  overflow:hidden;
+    position: relative;
+    margin: auto;
+
+
+}
+.tournament-listing{
+  background-color: white;
+  padding: 0.5em;
+}
 
 /** Detail View **/
 img.tournament {
   float: left;
-
-  background-color: white;
-  padding: 0.5em;
-  max-height: 30em;
+height:auto;
   width: 100%;
   display: none;
 }
@@ -116,11 +130,12 @@ p.thumbText{
 .contestLarge{
   margin:10px;
 
+
 }
 h3.contestLarge {
   text-align:center;
 }
-.thumbWrap{
+.thumb{
 }
 .panel-title > p{
   font-size: 1.5em;

@@ -4,7 +4,7 @@
  */
 
 exports.index = function(req, res){
-  res.render('index.jade');
+  res.render('layout.jade');
 };
 exports.tournamentList = function (req, res) {
     res.render('tournaments/list.jade');

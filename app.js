@@ -9,12 +9,8 @@ var http = require('http');
 var path = require('path');
 var app = express();
 
-
-//är inte säker på om modelen borde ligga här, relocate at your leisure
-
 var TournamentList = require('./routes/tournaments.js');
 var tournamentList = new TournamentList('mongodb://wleusdb01:l.ijY2JkJXruT68_wr_zypBCC_4MQNRqTHUdIUE_FaQ-@ds035787.mongolab.com:35787/wleusdb01');
-
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -38,6 +34,7 @@ app.get('/', routes.index);
 app.get('/tournaments/list', routes.tournamentList);
 app.get('/tournaments/details', routes.tournamentsDetails);
 app.get('/tournaments/new',routes.newTournament);
+
 
 //api ahead, here be dragons------
 app.get('/api/tourData', tournamentList.list.bind(tournamentList));
