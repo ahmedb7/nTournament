@@ -11,7 +11,8 @@ angular.module('tournaments').controller('TournamentsController', ['$scope', '$s
       });
       tournament.$save(function(response) {
         $location.path('tournaments/' + response._id);
-
+        //TODO: Här ska in tournament-specifika properties
+        //      istället för title och content
         $scope.title = '';
         $scope.content = '';
       }, function(errorResponse) {
