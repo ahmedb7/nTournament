@@ -1,0 +1,28 @@
+<html>
+  <body>
+    <div class="pWrapper container">
+      <div class="row">
+        <div class="col-md-12">
+          <div ng-model="tournaments" class="mainContent container-fluid">
+            <div class="contestLarge row">
+              <div class="tournament-listing panel-body thumbWrap col-md-12">
+                <div ng-repeat="tourL in tournaments | orderBy:tourL.important | limitTo:2" class="thumb col-md-6"><a href="#/tournaments/{{tourL.tournamentId}}" class="thumb"><img ng-src="{{tourL.tournamentthumb}}" class="tournament img img-thumbnail"/></a>
+                  <h3 class="panel contestLarge panel-sm">{{tourL.name}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="contestWrapper well container-fluid">
+              <div class="contestSmall row">
+                <div class="tournament-listing">
+                  <div ng-repeat="tour in tournaments | orderBy:tournamentCreated" class="tour-repeat col-md-4 panel-sm"><a href="#/tournaments/{{tour.tournamentId}}" class="thumb"><img ng-src="{{tour.tournamentthumb}}" class="tournament img-rounded"/></a><a href="#/tournaments/{{tour.tournamentId}}">
+                      <p class="thumbText"></p>
+                      <p class="tour-repeat">{{tour.name}}</p></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
