@@ -1,11 +1,10 @@
-<html>
-  <body>
+<section data-ng-controller="TournamentsController" data-ng-init="findOne()">
     <div ng-model="tournament" class="container">
       <div class="row">
         <div class="tournamentsWrapper col-sm-11 col-md-11">
           <ol class="breadcrumb">
             <li><a href="#/tournaments/#">Home</a></li>
-            <li class="active">{{tournament.name}}</li>
+            <li class="active" data-ng-bind="tournament.name"></li>
           </ol>
           <div class="pageHeader row">
             <div class="headerImage well col-md-12"><img ng-src="{{tournament.tournamentHeaderImage}}" class="thumb col-md-12"/></div>
@@ -63,5 +62,4 @@
         </div>
       </div>
     </div>
-  </body>
-</html>
+</section>

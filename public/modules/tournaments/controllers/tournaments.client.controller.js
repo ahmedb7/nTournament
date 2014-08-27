@@ -8,15 +8,25 @@ angular.module('tournaments').controller('TournamentsController', ['$scope', '$s
       var tournament = new Tournaments({
         //TODO: Här ska in tournament-specifika properties
         //      istället för title och content
-        title: this.title,
-        content: this.content
+        name: this.name,
+        game: this.game,
+        genre: this.genre,
+        description: this.description,
+        tournamentStartTime: this.tournamentStartTime,
+        registrationStartTime: this.registrationStartTime,
+        registrationEndTime: this.registrationEndTime
       });
       tournament.$save(function(response) {
         $location.path('tournaments/' + response._id);
         //TODO: Här ska in tournament-specifika properties
         //      istället för title och content
-        $scope.title = '';
-        $scope.content = '';
+        $scope.name = '';
+        $scope.game = '';
+        $scope.genre = '';
+        $scope.description = '';
+        $scope.tournamentStartTime = new Date();
+        $scope.registrationStartTime = new Date();
+        $scope.registrationEndTime = new Date();
       }, function(errorResponse) {
         $scope.error = errorResponse.data.message;
       });
