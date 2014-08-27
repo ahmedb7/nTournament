@@ -7,6 +7,10 @@ var tournamentSchema = new Schema({
   game:String,
   genre:String,
   description:String,
+  user: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
   tournamentthumb:String,
   tournamentHeaderImage:String,
   tournamentCreated: { type: Date, default: Date.now },

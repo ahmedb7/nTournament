@@ -1,9 +1,8 @@
 <section data-ng-controller="TournamentsController" data-ng-init="findOne()">
-    <div ng-model="tournament" class="container">
       <div class="row">
         <div class="tournamentsWrapper col-sm-11 col-md-11">
           <ol class="breadcrumb">
-            <li><a href="#/tournaments/#">Home</a></li>
+            <li><a href="#!/tournaments">Home</a></li>
             <li class="active" data-ng-bind="tournament.name"></li>
           </ol>
           <div class="pageHeader row">
@@ -60,6 +59,8 @@
             </div>
           </div>
         </div>
+        <a class="btn btn-primary" data-ng-click="remove();" data-ng-show="authentication.user._id == tournament.user._id">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
       </div>
-    </div>
 </section>
