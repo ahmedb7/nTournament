@@ -3,11 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+   Otto Remse -- MammasKällare -- @ottoremse
 
 # THANKS
 
-    <name>
+    hitbox, angular, alpacas
 
 # TECHNOLOGY COLOPHON
 
