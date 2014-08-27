@@ -6,6 +6,8 @@ angular.module('tournaments').controller('TournamentsController', ['$scope', '$s
 
     $scope.create = function() {
       var tournament = new Tournaments({
+        //TODO: Här ska in tournament-specifika properties
+        //      istället för title och content
         title: this.title,
         content: this.content
       });
