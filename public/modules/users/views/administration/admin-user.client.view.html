@@ -1,0 +1,14 @@
+<section data-ng-controller="AdminController" data-ng-init="findOne()">
+  <div class="page-header">
+    <div class="pull-right" data-ng-show="isAdmin()">
+      <a class="btn btn-primary" href="/#!/admin/users/{{user._id}}/edit">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+  </div>
+  <ul>
+    <!--We actually got data! woo-->
+    <li ng-repeat="role in user.roles">
+      {{role}}
+    </li>
+  </ul>
+</section>

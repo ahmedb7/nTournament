@@ -1,23 +1,7 @@
 'use strict';
 
 angular.module('users').controller('AdminController', ['$scope', '$stateParams','$location','Users', 'Authentication',
-  function($scope,$stateParams,$location, Users, Authentication) {
-
-    $scope.remove = function(user) {
-      if (user) {
-        user.$remove();
-
-        for (var i in $scope.users) {
-          if ($scope.users[i] === user) {
-            $scope.users.splice(i, 1);
-          }
-        }
-      } else {
-        $scope.user.$remove(function() {
-          $location.path('users');
-        });
-      }
-    };
+  function($scope, $stateParams, $location, Users, Authentication) {
 
     $scope.update = function() {
       var users = $scope.users;
@@ -35,9 +19,12 @@ angular.module('users').controller('AdminController', ['$scope', '$stateParams',
 
     $scope.findOne = function() {
       $scope.user = Users.get({
-        username: $stateParams.username
+        id: $stateParams.id
       });
     };
-
+  $scope.isAdmin = function()
+  {
+    return Authentication.user.roles.indexOf('admin') > -1;
+  };
 
 }]);

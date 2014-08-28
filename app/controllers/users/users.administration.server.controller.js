@@ -8,7 +8,7 @@ var _ = require('lodash'),
 
 exports.listAll = function(req,res)
 {
-  if (req.user.hasAuthorization('admin')){
+  if (_.contains(req.user.roles,'admin')){
       User.find({},function(err,users)
       {
         res.send(users);
@@ -19,4 +19,19 @@ exports.listAll = function(req,res)
       message: errorHandler.getErrorMessage({code:401})
     });
   }
+};
+exports.read = function(req, res) {
+  res.jsonp(req.user);
+};
+exports.FinduserById = function(req, res, next, id) {
+  if(_.contains(req.user.roles, 'admin'))
+    {
+  User.findById(id,function(err,user)
+  {
+    if (err) return next(err);
+    if (!user) return next(new Error('Failed to load user ' + id));
+    req.user = user;
+    next();
+  });
+}
 };

@@ -43,11 +43,15 @@ angular.module('users').config(['$stateProvider',
 		}).
 		state('adminusers', {
 			url: '/admin/users',
-			templateUrl: 'modules/users/views/password/admin-list-users.client.view.html'
+			templateUrl: 'modules/users/views/administration/admin-list-users.client.view.html'
 		}).
 		state('adminuser', {
-			url: '/admin/users/:username',
-			templateUrl: 'modules/users/views/password/admin-user.client.view.html'
+			url: '/admin/users/:id',
+			templateUrl: 'modules/users/views/administration/admin-user.client.view.html'
+		}).
+		state('adminuseredit', {
+			url: '/admin/users/:id/edit',
+			templateUrl: 'modules/users/views/administration/admin-user-edit.client.view.html'
 		});
 	}
 ]);
