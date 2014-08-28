@@ -105,7 +105,7 @@ exports.hasAuthorization = function(req, res, next) {
   }
   else{
     return res.status(403).send({
-      message: 'User is not authorized'
+      message: errorHandler.getErrorMessage({code:403})
     });
   }
 

@@ -22,9 +22,13 @@ var getUniqueErrorMessage = function(err) {
  */
 exports.getErrorMessage = function(err) {
 	var message = '';
-	
+
 	if (err.code) {
 		switch (err.code) {
+			case 401:
+			case 403:
+				message = 'You\'re not authorized to do that!';
+				break;
 			case 11000:
 			case 11001:
 				message = getUniqueErrorMessage(err);

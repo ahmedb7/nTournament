@@ -70,6 +70,6 @@ angular.module('tournaments').controller('TournamentsController', ['$scope', '$s
     $scope.isAdminOrEditor = function(user)
     {
       return user.roles.indexOf('admin') > -1 || user.roles.indexOf('editor') > -1;
-    }
+    };
   }
 ]);
