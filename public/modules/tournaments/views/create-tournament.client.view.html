@@ -1,57 +1,149 @@
 <!-- #todo: -->
-<section data-ng-controller="TournamentsController">
+<section data-ng-controller="TournamentsController" ng-init="section=0">
   <div class="page-header">
-    <h1>New Tournament</h1>
+    <h1>New Tournament - {{name}}</h1>
+    <span class="label label-success">{{game}}</span>
+    <span class="label label-info">{{genre}}</span>
+    <progressbar value="section" max="4"></progressbar>
   </div>
-  <div class="col-md-12">
-    <form name="tournamentForm" class="form-horizontal" data-ng-submit="create()" novalidate>
-      <fieldset>
-        <div class="form-group">
-          <label class="control-label" for="content">Name</label>
-          <div class="controls">
-            <input  type="text" name="name" data-ng-model="name" id="content" class="form-control" placeholder="Name">
+  <form name="tournamentForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+    <fieldset>
+      <div class="col-md-12">
+
+        <div ng-show="section==0" class="section0">
+
+          <div class="form-group">
+            <label class="control-label" for="content">Name</label>
+            <div class="controls">
+              <input  type="text" name="name" data-ng-model="name" id="content" class="form-control" placeholder="Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="content">Description</label>
+            <div class="controls row-fluid">
+              <textarea data-ng-model="description" type="text" name="description" id="description" rows="20" cols="30" class="form-control" placeholder="description"></textarea>
+            </div>
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Game</label>
-          <div class="controls">
-            <input  type="text" name="game" data-ng-model="game" id="game" class="form-control" placeholder="game">
+        <div ng-show="section==1" class="section1 container">
+          <div class="greatdivider col-md-9 ">
+            <div class="form-group">
+              <label class="control-label" for="content">Game</label>
+              <div class="controls">
+                <input  type="text" name="game" data-ng-model="game" id="game" class="form-control" placeholder="game">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="content">Genre</label>
+              <div class="controls">
+                <input  type="text" name="genre" data-ng-model="genre" id="genre" class="form-control" placeholder="genre">
+              </div>
+            </div>
+            <div class="form-group ">
+              <label class="control-label" for="content">tournamentthumb</label>
+              <div class="controls row-fluid">
+                <input type="text" name="tournamentthumb" data-ng-model="tournamentthumb" id="tournamentthumb" class="form-control" placeholder="tournamentthumb">
+              </div>
+            </div>
+            <div class="form-group ">
+              <label class="control-label" for="content">tournamentHeaderImage</label>
+              <div class="controls row-fluid">
+                <input type="text" name="tournamentHeaderImage" data-ng-model="tournamentHeaderImage" id="tournamentHeaderImage" class="form-control" placeholder="tournamentHeaderImage">
+              </div>
+            </div>
+
+
+
+
+          </div>  
+          <div class="preview col-md-3">
+            <img class="img-thumbnail" src="{{tournamentthumb}}" alt="">
+          </div>
+        </div>  
+        <div ng-show="section==2" class="section2">
+
+
+          <div class="form-group">
+            <label class="control-label" for="content">Start time</label>
+            <div class="controls">
+              <input type="datetime-local" name="tournamentStartTime" data-ng-model="tournamentStartTime" id="tournamentStartTime" class="form-control" placeholder="tournamentStartTime">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label" for="content">Registrations start</label>
+            <div class="controls">
+              <input type="datetime-local" name="registrationStartTime" data-ng-model="registrationStartTime" id="registrationStartTime" class="form-control" placeholder="registrationStartTime">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="content">Registrations end</label>
+            <div class="controls">
+              <input type="datetime-local" name="registrationEndTime" data-ng-model="registrationEndTime" id="registrationEndTime" class="form-control" placeholder="registrationEndTime">
+            </div>
+          </div>
+
+        </div>
+        <div ng-show="section==3" class="section3">
+          <div class="form-group ">
+            <label class="control-label" for="content">streamLink</label>
+            <div class="controls row-fluid">
+              <input type="text" name="streamLink" data-ng-model="streamLink" id="streamLink" class="form-control" placeholder="streamLink">
+            </div>
+          </div>
+          <div class="form-group ">
+            <label class="control-label" for="content">priority</label>
+            <div class="controls row-fluid">
+              <input type="text" name="priority" data-ng-model="priority" id="priority" class="form-control" placeholder="priority">
+            </div>
+          </div>
+
+
+        </div>
+
+        <div ng-show="section==4" class="section4">
+        <div class="panel container">
+          <h2>Please review before submiting</h2>
+          <div class="top">
+            <div class="header col-md-10">
+            <h2>{{name}}</h2>
+            </div>
+            <div class="headerthumb col-md-2">
+              <img class="img img-thumbnail" ng-src="{{tournamentthumb}}">
+            </div>
+          </div>
+          <div class="mid well">
+            <h4>description: </h4><p>{{description}}</p>
+            <h3>game: </h3><p>{{game}}</p>
+            <h3>genre: </h3><p>{{game}}</p>
+            <h3>Tournament Starts: </h3><p>{{tournamentStartTime}}</p>
+            <h3>Registrations: </h3><p>{{registrationStartTime}} -> {{registrationEndTime}}</p>
+            <h3>rules:</h3><p> {{rules}}</p>
+            <h3>streamlink: <div class="panel"><a href="{{streamLink}}">{{streamLink}}</a></div></h3>
+
+
+          </div>
+
+
+
+        </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-block btn-success">
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Genre</label>
-          <div class="controls">
-            <input  type="text" name="genre" data-ng-model="genre" id="genre" class="form-control" placeholder="genre">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Description</label>
-          <div class="controls">
-            <input  type="text" name="description" data-ng-model="description" id="description" class="form-control" placeholder="description">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Start time</label>
-          <div class="controls">
-            <input type="datetime-local" name="tournamentStartTime" data-ng-model="tournamentStartTime" id="tournamentStartTime" class="form-control" placeholder="tournamentStartTime">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Registrations start</label>
-          <div class="controls">
-            <input type="datetime-local" name="registrationStartTime" data-ng-model="registrationStartTime" id="registrationStartTime" class="form-control" placeholder="registrationStartTime">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="content">Registrations end</label>
-          <div class="controls">
-            <input type="datetime-local" name="registrationEndTime" data-ng-model="registrationEndTime" id="registrationEndTime" class="form-control" placeholder="registrationEndTime">
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-default">
-        </div>
+
+
+
+
+
+
       </fieldset>
     </form>
+    <div ng-hide="section==4" class="next">
+      <button ng-click="section = section + 1" class="btn btn-block btn-info">Next</button>
+    </div>
+    <div ng-hide="section==0" class="previous">
+      <button ng-click="section = section - 1" class="btn btn-block btn-warning">Back</button>
+    </div>
   </div>
 </section>
