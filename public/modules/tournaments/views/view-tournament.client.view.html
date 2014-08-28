@@ -61,8 +61,8 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary" data-ng-click="remove();" data-ng-show="authentication.user._id == tournament.user._id">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>
-        </div>
-      </section>
+        <a class="btn btn-primary" data-ng-click="remove();" data-ng-show="isAdminOrEditor(authentication.user)">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+      </div>
+</section>

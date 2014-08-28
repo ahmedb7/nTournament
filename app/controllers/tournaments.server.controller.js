@@ -100,10 +100,13 @@ exports.tournamentByID = function(req, res, next, id) {
  * Tournament authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
-  if (req.tournament.user.id !== req.user.id) {
+  if (_.intersection(req.user.roles,['editor','admin'])) {
+      next();
+  }
+  else{
     return res.status(403).send({
       message: 'User is not authorized'
     });
   }
-  next();
+
 };
