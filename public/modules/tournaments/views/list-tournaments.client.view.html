@@ -15,7 +15,8 @@
                 <div class="tournament-listing">
                   <div ng-repeat="tour in tournaments | orderBy:tournamentCreated" class="tour-repeat col-md-4 panel-sm"><a href="#!/tournaments/{{tour._id}}" class="thumb"><img ng-src="{{tour.tournamentthumb}}" class="tournament img-rounded"/></a><a href="#!/tournaments/{{tour._id}}">
                       <p class="thumbText"></p>
-                      <p class="tour-repeat">{{tour.name}}</p></a></div>
+                      <p class="tour-repeat">{{tour.name}}</p></a>
+                      </div>
                     
                 </div>
               </div>

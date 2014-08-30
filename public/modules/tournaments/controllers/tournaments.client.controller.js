@@ -11,6 +11,12 @@ angular.module('tournaments').controller('TournamentsController', ['$scope', '$s
         name: this.name,
         game: this.game,
         genre: this.genre,
+        tournamentHeaderImage: this.tournamentHeaderImage,
+        tournamentthumb: this.tournamentthumb,
+        streamLink: this.streamLink,
+        priority: this.priority,
+        rules: this.rules,
+        user: this.user,
         description: this.description,
         tournamentStartTime: this.tournamentStartTime,
         registrationStartTime: this.registrationStartTime,
@@ -24,6 +30,12 @@ angular.module('tournaments').controller('TournamentsController', ['$scope', '$s
         $scope.game = '';
         $scope.genre = '';
         $scope.description = '';
+        $scope.tournamentHeaderImage = '';
+        $scope.tournamentthumb = '';
+        $scope.streamLink = '';
+        $scope.priority = '';
+        $scope.rules = '';
+        $scope.user =  '';
         $scope.tournamentStartTime = new Date();
         $scope.registrationStartTime = new Date();
         $scope.registrationEndTime = new Date();
