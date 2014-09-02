@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('AdminController', ['$scope', '$stateParams','$location','Users', 'Authentication',
-  function($scope, $stateParams, $location, Users, Authentication) {
+angular.module('users').controller('AdminController', ['$scope', '$stateParams','$location','Users','AdminUsers', 'Authentication',
+  function($scope, $stateParams, $location, Users, AdminUsers, Authentication) {
 
     $scope.update = function() {
       var users = $scope.users;
@@ -14,17 +14,27 @@ angular.module('users').controller('AdminController', ['$scope', '$stateParams',
     };
 
     $scope.find = function() {
-      $scope.users = Users.query();
+      $scope.users = AdminUsers.query();
     };
 
     $scope.findOne = function() {
-      $scope.user = Users.get({
+      $scope.user = AdminUsers.get({
         id: $stateParams.id
       });
     };
   $scope.isAdmin = function()
   {
     return Authentication.user.roles.indexOf('admin') > -1;
+  };
+  $scope.addRole = function(role)
+  {
+    if(Authentication.user.roles.indexOf('admin') > -1){
+
+        console.log($scope.user);
+        $scope.user.roles.push(role);
+        $scope.user.$update();
+
+    }
   };
 
 }]);
